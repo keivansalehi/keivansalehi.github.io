@@ -92,10 +92,10 @@ section.block{padding-block:56px;border-top:1px solid var(--line)}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
 .chip{font-family:var(--f-mono);font-size:.78rem;padding:3px 10px;border-radius:6px;background:var(--accent-soft);color:var(--ink)}
 
-.contact{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:24px;max-width:760px}
+.contact{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:24px;max-width:640px}
 .contact .item{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;min-width:0}
 .contact .k{font-family:var(--f-mono);font-size:.74rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
-.contact .v{display:block;margin-top:2px;overflow-wrap:anywhere}
+.contact .v{display:block;margin-top:2px;overflow-wrap:anywhere;user-select:all}
 footer{padding-block:32px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line)}
 
 @media (max-width:860px){
@@ -105,14 +105,20 @@ footer{padding-block:32px;color:var(--muted);font-size:.85rem;border-top:1px sol
   .projects,.contact{grid-template-columns:minmax(0,1fr)}
 }
 @media (max-width:480px){ nav{gap:14px} .row{grid-template-columns:minmax(0,1fr)} }
+.wp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px;margin-top:20px}
+.wp article{padding-block:18px;border-bottom:1px solid var(--line);min-width:0}
+.wp .tag{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--signal)}
+.wp h3{font-size:1.08rem;margin-top:4px}
+.wp p{margin:6px 0 0;color:var(--muted);font-size:.94rem}
+.contact{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+@media (max-width:860px){.wp{grid-template-columns:minmax(0,1fr)}.contact{grid-template-columns:minmax(0,1fr)!important}}
 </style>
 </head>
 <body>
-
 <header class="top"><div class="wrap">
   <a class="mark" href="#top">Keivan Salehi</a>
   <nav aria-label="Sections">
-    <a href="#research">Research</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+    <a href="#research">Research</a><a href="#thesis-work">Thesis work</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
   </nav>
 </div></header>
 
@@ -124,6 +130,7 @@ footer{padding-block:32px;color:var(--muted);font-size:.85rem;border-top:1px sol
     <p class="lede">MSc researcher in Mechanics at Beijing Institute of Technology. I build large-deformation models of long, light structures and design the estimators and model predictive controllers that bring them to rest in real time.</p>
     <div class="cta">
       <a class="btn primary" href="#research">See my research</a>
+      <a class="btn" href="mailto:salehikeyvan1376@gmail.com">Email me</a>
       <a class="btn" href="https://github.com/keivansalehi">GitHub</a>
     </div>
   </div>
@@ -154,10 +161,29 @@ footer{padding-block:32px;color:var(--muted);font-size:.85rem;border-top:1px sol
   </div>
 </div></section>
 
+
+<section class="block" id="thesis-work"><div class="wrap sec-head">
+  <div class="label">Thesis work</div>
+  <div class="sec-body">
+    <h2>What I built for the thesis so far</h2>
+    <p>Each piece below is a working, tested part of the same simulation framework, written in Python.</p>
+    <div class="wp">
+      <article><span class="tag">Design</span><h3>Truss design study</h3><p>A 3D space-frame finite element model of a printed lattice truss: longerons, battens and diagonals as 3D frame elements. It gives natural frequencies, mode types and the equivalent bending and torsion stiffness used by the beam model, and showed how open sections trade bending for twist.</p></article>
+      <article><span class="tag">Modelling</span><h3>Large-deformation beam model</h3><p>Planar ANCF beam with exact strain and curvature, an analytic tangent and generalized-α time integration. Checked against Euler&ndash;Bernoulli frequencies, the exact elastica for large static deflection, and energy conservation.</p></article>
+      <article><span class="tag">Validation</span><h3>Independent plant in Exudyn</h3><p>The same truss and arm rebuilt in the Exudyn multibody code and used as the plant, so the controller is never tested against its own model.</p></article>
+      <article><span class="tag">Estimation</span><h3>State estimation from markers</h3><p>Extended Kalman filter that recovers the full truss state from motion-capture markers on the tip, with the camera delay handled exactly, and hybrid identification of stiffness, payload and damping.</p></article>
+      <article><span class="tag">Control</span><h3>Fixed and sliding arm MPC</h3><p>Linear and ANCF-based model predictive control for an arm fixed at the tip and for an arm sliding along the truss on a carriage, compared over repeated noisy runs.</p></article>
+      <article><span class="tag">3D</span><h3>Bending and torsion in 3D</h3><p>3D ANCF beam with an elliptic section and an offset arm, so arm motion also twists the truss; a modal Kalman filter and a 3D MPC that uses the bending&ndash;torsion coupling.</p></article>
+      <article><span class="tag">Data-driven</span><h3>Data-driven prediction models</h3><p>Hankel dynamic mode decomposition with control (DMDc) as an alternative prediction model, compared with the physics-based one inside the same MPC.</p></article>
+      <article><span class="tag">Real time</span><h3>Real-time controller and ROS 2 node</h3><p>Compiled with Numba and split across processes so estimation and control meet their deadlines, tested against the wall clock in software-in-the-loop runs, with a ROS 2 node ready for the lab platform.</p></article>
+    </div>
+  </div>
+</div></section>
+
 <section class="block" id="projects"><div class="wrap sec-head">
   <div class="label">Projects</div>
   <div class="sec-body">
-    <h2>Selected work</h2>
+    <h2>Other projects</h2>
     <div class="projects">
       <article class="proj">
         <div class="tag">MATLAB · Simulink · GNC</div>
@@ -183,6 +209,16 @@ footer{padding-block:32px;color:var(--muted);font-size:.85rem;border-top:1px sol
         <div class="tag">Manufacturing · hands-on</div>
         <h3>Aircraft sheet-metal fabrication</h3>
         <p>Sheet forming and riveting of aircraft skin structures at K. N. Toosi University of Technology, under a Grade 1 aviation maintenance engineer certified by Iran Air.</p>
+      </article>
+      <article class="proj">
+        <div class="tag">Science communication</div>
+        <h3>Keivan in China</h3>
+        <p>A YouTube and Instagram channel in Persian with English subtitles about aerospace engineering and student life in China.</p>
+      </article>
+      <article class="proj">
+        <div class="tag">GNC · presentation</div>
+        <h3>Coupled kinematics for spacecraft GNC</h3>
+        <p>A technical presentation on coupled spacecraft kinematics for guidance, navigation and control, with simulation results.</p>
       </article>
     </div>
   </div>
@@ -217,9 +253,10 @@ footer{padding-block:32px;color:var(--muted);font-size:.85rem;border-top:1px sol
   <div class="label">Contact</div>
   <div class="sec-body">
     <h2>Open to PhD positions and engineering roles</h2>
-    <p>I'm looking for funded PhD positions from 2028 and for engineering work in dynamics, control or simulation, on site or remote. The quickest way to reach me is a message on GitHub, YouTube or Instagram.</p>
+    <p>I'm looking for funded PhD positions from 2028 and for engineering work in dynamics, control or simulation, on site or remote. Email is the best way to reach me.</p>
     <div class="contact">
-      <div class="item"><span class="k">GitHub</span><a class="v" href="https://github.com/keivansalehi">keivansalehi</a></div>
+      <div class="item"><span class="k">Email</span><a class="v" href="mailto:salehikeyvan1376@gmail.com">salehikeyvan1376@gmail.com</a></div>
+                  <div class="item"><span class="k">GitHub</span><a class="v" href="https://github.com/keivansalehi">github.com/keivansalehi</a></div>
       <div class="item"><span class="k">YouTube</span><a class="v" href="https://www.youtube.com/@keivaninchina">@keivaninchina</a></div>
       <div class="item"><span class="k">Instagram</span><a class="v" href="https://www.instagram.com/keivaninchina">@keivaninchina</a></div>
     </div>
@@ -292,6 +329,7 @@ footer{padding-block:32px;color:var(--muted);font-size:.85rem;border-top:1px sol
     if(reduce){for(let i=0;i<300;i++)hist.push(amp(i*0.03)); draw(0.4);} }
   bOn.addEventListener('click',()=>set(true)); bOff.addEventListener('click',()=>set(false));
   if(reduce){set(true);} else {requestAnimationFrame(frame);}
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>reduce&&draw(0.4));
 })();
 </script>
 
