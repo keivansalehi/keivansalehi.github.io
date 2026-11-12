@@ -112,19 +112,27 @@ footer{padding-block:32px;color:var(--muted);font-size:.85rem;border-top:1px sol
 .wp p{margin:6px 0 0;color:var(--muted);font-size:.94rem}
 .contact{grid-template-columns:repeat(2,minmax(0,1fr))!important}
 @media (max-width:860px){.wp{grid-template-columns:minmax(0,1fr)}.contact{grid-template-columns:minmax(0,1fr)!important}}
+.who{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.who img{width:72px;height:72px;border-radius:50%;object-fit:cover;border:2px solid var(--surface);box-shadow:0 0 0 1px var(--line)}
+.who b{display:block;font-family:var(--f-display);font-size:1.05rem}
+.who span{font-size:.88rem;color:var(--muted)}
+.more-h{font-size:1rem;margin-top:28px;font-family:var(--f-body);font-weight:600;letter-spacing:0}
+.more{margin:8px 0 0;padding-left:18px;color:var(--muted);columns:2;column-gap:32px}
+@media (max-width:860px){.more{columns:1}}
 </style>
 </head>
 <body>
 <header class="top"><div class="wrap">
   <a class="mark" href="#top">Keivan Salehi</a>
   <nav aria-label="Sections">
-    <a href="#research">Research</a><a href="#thesis-work">Thesis work</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+    <a href="#research">Research</a><a href="#thesis-work">Thesis work</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#honors">Honors</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
   </nav>
 </div></header>
 
 <main id="top">
 <section class="hero"><div class="wrap">
   <div>
+    <div class="who"><img src="photo.jpg" alt="Keivan Salehi" width="72" height="72"><div><b>Keivan Salehi</b><span>M.Sc. researcher · Beijing Institute of Technology</span></div></div>
     <div class="kicker">Structural dynamics · Control · Simulation</div>
     <h1>I make flexible structures stop shaking.</h1>
     <p class="lede">MSc researcher in Mechanics at Beijing Institute of Technology. I build large-deformation models of long, light structures and design the estimators and model predictive controllers that bring them to rest in real time.</p>
@@ -187,12 +195,13 @@ footer{padding-block:32px;color:var(--muted);font-size:.85rem;border-top:1px sol
     <div class="projects">
       <article class="proj">
         <div class="tag">MATLAB · Simulink · GNC</div>
-        <h3>Spacecraft attitude control simulation</h3>
-        <p>Large-angle attitude control with reaction wheels, thrusters and magnetorquers.</p>
+        <h3>Spacecraft GNC: attitude control and autonomous docking</h3>
+        <p>A full guidance, navigation and control simulation in MATLAB/Simulink.</p>
         <ul>
-          <li>Gravity-gradient, aerodynamic, solar-pressure and magnetic disturbance torques</li>
-          <li>Gyroscope and star-tracker error models with band-limited noise</li>
-          <li>PD, LQR and sliding-mode controllers compared by Monte Carlo simulation</li>
+          <li>Nonlinear attitude dynamics with gravity-gradient, aerodynamic, solar-pressure (with eclipse) and magnetic disturbance torques</li>
+          <li>Gyroscope and star-tracker models with bias and noise, fused with a Kalman filter</li>
+          <li>PD, LQR and sliding-mode controllers compared on overshoot, settling time, error and effort</li>
+          <li>Clohessy&ndash;Wiltshire relative dynamics with two-stage glideslope guidance: the chaser closes from 100 m to about 0.25 m at near-zero relative velocity</li>
         </ul>
       </article>
       <article class="proj">
@@ -216,11 +225,29 @@ footer{padding-block:32px;color:var(--muted);font-size:.85rem;border-top:1px sol
         <p>A YouTube and Instagram channel in Persian with English subtitles about aerospace engineering and student life in China.</p>
       </article>
       <article class="proj">
-        <div class="tag">GNC · presentation</div>
-        <h3>Coupled kinematics for spacecraft GNC</h3>
-        <p>A technical presentation on coupled spacecraft kinematics for guidance, navigation and control, with simulation results.</p>
+        <div class="tag">Flexible multibody · BIT 2026</div>
+        <h3>Satellite with hinged multi-panel solar arrays</h3>
+        <p>A 3D rigid-flexible multibody satellite model with hinged solar panel plates, built with the floating frame of reference and plate finite elements, with LQR and MPC attitude and vibration control and a 3D animation.</p>
+      </article>
+      <article class="proj">
+        <div class="tag">Dynamics · competition</div>
+        <h3>3-DOF chaotic pendulum, first place</h3>
+        <p>Designed and built a three-degree-of-freedom chaotic pendulum. First place in the Dynamics course competition at KNTU.</p>
+      </article>
+      <article class="proj">
+        <div class="tag">Control · hardware</div>
+        <h3>Reaction wheel inverted pendulum</h3>
+        <p>Control system for an inverted pendulum balanced by a reaction wheel.</p>
       </article>
     </div>
+    <h3 class="more-h">More undergraduate projects</h3>
+    <ul class="more">
+      <li>Liquid-propellant rocket engine performance modelling</li>
+      <li>CFD analysis of the NACA 4412 airfoil</li>
+      <li>Conceptual design of a 180 to 210 passenger commercial aircraft</li>
+      <li>Literature review of space robots</li>
+    </ul>
+    
   </div>
 </div></section>
 
@@ -229,10 +256,27 @@ footer{padding-block:32px;color:var(--muted);font-size:.85rem;border-top:1px sol
   <div class="sec-body">
     <h2>Background</h2>
     <div class="rows">
-      <div class="row"><div><h3>M.Sc. Mechanics, Beijing Institute of Technology</h3><p>School of Aerospace Engineering. Full First Prize scholarship.</p></div><span class="when">2026 to 2028</span></div>
-      <div class="row"><div><h3>B.Sc., K. N. Toosi University of Technology</h3><p>Tehran, Iran. Aerospace and mechanical engineering coursework in dynamics, control and manufacturing.</p></div><span class="when">Tehran</span></div>
-      <div class="row"><div><h3>Aerospace engineer, aviation trade department, TahatoreIran</h3></div><span class="when">Iran</span></div>
-      <div class="row"><div><h3>Assistant to the CEO, Pakrokh Group</h3></div><span class="when">Iran</span></div>
+      <div class="row"><div><h3>M.Sc. Mechanics, Beijing Institute of Technology</h3><p>School of Aerospace Engineering, Beijing. Supervisor Prof. Haiyan Hu, co-advisor Prof. Kai Luo. BIT International Student Scholarship, First Prize (full scholarship).</p></div><span class="when">Sep 2026 to mid-2028</span></div>
+      <div class="row"><div><h3>B.Sc. Aerospace Engineering, K. N. Toosi University of Technology</h3><p>Tehran, Iran. Grade 16.81/20, top 5% of the program. Focus on dynamics, control systems, fluid mechanics and spacecraft.</p></div><span class="when">Sep 2021 to Mar 2025</span></div>
+      <div class="row"><div><h3>Assistant to the CEO, Pakrokh Group</h3><p>Tehran. Scheduling, correspondence, meeting preparation and follow-up on decisions; coordination between departments and management reports.</p></div><span class="when">Feb 2026 to Jul 2026</span></div>
+      <div class="row"><div><h3>Aerospace engineer, aviation trade department, TahatoreIran</h3><p>Tehran. The engineering side of aviation trade deals: reviewing technical specifications of aircraft parts and equipment.</p></div><span class="when">Jul 2024 to Jul 2025</span></div>
+      <div class="row"><div><h3>Summer intern, UAV Lab, K. N. Toosi University of Technology</h3><p>Tehran.</p></div><span class="when">Jul 2023 to Sep 2023</span></div>
+      <div class="row"><div><h3>English teacher, Iranmehr Language Institutes</h3><p>Tehran. Nine years teaching learners of different ages and levels, which is why I explain technical work clearly.</p></div><span class="when">Jun 2014 to May 2023</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="block" id="honors"><div class="wrap sec-head">
+  <div class="label">Honors</div>
+  <div class="sec-body">
+    <h2>Awards</h2>
+    <div class="rows">
+      <div class="row"><div><h3>BIT International Student Scholarship, First Prize</h3></div><span class="when">2026</span></div>
+      <div class="row"><div><h3>Top 5% of the B.Sc. Aerospace Engineering program, KNTU</h3></div><span class="when">2025</span></div>
+      <div class="row"><div><h3>Top 0.5% in Iran's national university entrance exam, about 165,000 candidates</h3></div><span class="when">2021</span></div>
+      <div class="row"><div><h3>First place, Khwarizmi Youth Awards, Electronics</h3></div><span class="when">2020</span></div>
+      <div class="row"><div><h3>First place, Dynamics course competition, KNTU (3-DOF chaotic pendulum)</h3></div><span class="when">KNTU</span></div>
+      <div class="row"><div><h3>Second place, Fluid Mechanics course competition, KNTU (Bernoulli water clock)</h3></div><span class="when">KNTU</span></div>
     </div>
   </div>
 </div></section>
@@ -242,9 +286,9 @@ footer{padding-block:32px;color:var(--muted);font-size:.85rem;border-top:1px sol
   <div class="sec-body">
     <h2>Tools I work with</h2>
     <div class="skills">
-      <div><h3>Methods</h3><div class="chips"><span class="chip">ANCF</span><span class="chip">MPC / RTI</span><span class="chip">EKF</span><span class="chip">LQR</span><span class="chip">Sliding mode</span><span class="chip">Generalized-α</span><span class="chip">Model reduction</span><span class="chip">System ID</span></div></div>
-      <div><h3>Software</h3><div class="chips"><span class="chip">Python</span><span class="chip">NumPy / SciPy</span><span class="chip">Numba</span><span class="chip">MATLAB</span><span class="chip">Simulink</span><span class="chip">Exudyn</span><span class="chip">OSQP</span><span class="chip">ROS 2</span><span class="chip">LaTeX</span></div></div>
-      <div><h3>Languages</h3><div class="chips"><span class="chip">Persian · native</span><span class="chip">English · working</span><span class="chip">Mandarin · learning</span></div></div>
+      <div><h3>Methods</h3><div class="chips"><span class="chip">ANCF</span><span class="chip">MPC / RTI</span><span class="chip">EKF</span><span class="chip">LQR</span><span class="chip">PID</span><span class="chip">Sliding mode</span><span class="chip">Kalman filtering</span><span class="chip">Orbital mechanics</span><span class="chip">Finite elements</span><span class="chip">Generalized-α</span><span class="chip">Model reduction</span><span class="chip">System ID</span></div></div>
+      <div><h3>Software</h3><div class="chips"><span class="chip">Python</span><span class="chip">NumPy / SciPy</span><span class="chip">Numba</span><span class="chip">MATLAB</span><span class="chip">Simulink</span><span class="chip">Exudyn</span><span class="chip">OSQP</span><span class="chip">ROS 2</span><span class="chip">SolidWorks</span><span class="chip">STK</span><span class="chip">CFD</span><span class="chip">LaTeX</span></div></div>
+      <div><h3>Languages</h3><div class="chips"><span class="chip">Persian · native</span><span class="chip">English · IELTS 7.0</span><span class="chip">Chinese · basic</span></div></div>
     </div>
   </div>
 </div></section>
@@ -256,7 +300,8 @@ footer{padding-block:32px;color:var(--muted);font-size:.85rem;border-top:1px sol
     <p>I'm looking for funded PhD positions from 2028 and for engineering work in dynamics, control or simulation, on site or remote. Email is the best way to reach me.</p>
     <div class="contact">
       <div class="item"><span class="k">Email</span><a class="v" href="mailto:salehikeyvan1376@gmail.com">salehikeyvan1376@gmail.com</a></div>
-                  <div class="item"><span class="k">GitHub</span><a class="v" href="https://github.com/keivansalehi">github.com/keivansalehi</a></div>
+      <div class="item"><span class="k">GitHub</span><a class="v" href="https://github.com/keivansalehi">github.com/keivansalehi</a></div>
+      <div class="item"><span class="k">LinkedIn</span><a class="v" href="https://www.linkedin.com/in/keivansalehi">linkedin.com/in/keivansalehi</a></div>
       <div class="item"><span class="k">YouTube</span><a class="v" href="https://www.youtube.com/@keivaninchina">@keivaninchina</a></div>
       <div class="item"><span class="k">Instagram</span><a class="v" href="https://www.instagram.com/keivaninchina">@keivaninchina</a></div>
     </div>
